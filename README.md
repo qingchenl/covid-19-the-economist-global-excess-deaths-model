@@ -52,3 +52,30 @@ Calculating excess deaths for the entire world over multiple years is both compl
 The Economist and Solstad (corresponding author), S., 2021. The pandemic’s true death toll. [online] The Economist. Available at: <https://www.economist.com/graphic-detail/coronavirus-excess-deaths-estimates> [Accessed ---]. First published in the article "Counting the dead", _The Economist_, issue 20, 2021. 
   
 (See also our [citation file](https://github.com/TheEconomist/covid-19-the-economist-global-excess-deaths-model/blob/main/citation.cff))
+
+
+# QL's exploration of the model
+
+## Motivations
+- Learn ML techniques
+- Validate model, especially by checking for overfitting
+
+## Todo
+
+### Exploratory step
+- Add comment to the original scripts according to personal needs
+- Investigate structure of the data
+- Document assumptions made in constructing the input
+- Describe the structure of the NN
+
+### Fix the data by replacing reference to public sources with local sources
+
+### Validation step
+- cluster analysis on known excess mortality/unknown excess mortality countries to determine intrapolation vs extrapolation
+- permute country labels and compare loss function when model is trained on the resulting noise
+- jackknife: remove one country at a time to check usefulness of the model assuming missing-at-random
+- subset analysis: remove groups of similar countries to confirm usefulness of extrapolation
+- any other analysis indicated by the exploratory step
+
+## Current progress
+- My exploratory code is in the `exploratory` folder

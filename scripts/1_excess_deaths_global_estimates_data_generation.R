@@ -45,6 +45,8 @@ daily_excess_deaths <- expand.grid(date = seq(min(excess_deaths_source$date), as
 # Removing very recent data for countries with clear reporting lag issues (Malaysia) after discussions with our source for this data, as well as data that is less than two weeks old (also to avoid reporting lag issues):
 daily_excess_deaths <- daily_excess_deaths[!(daily_excess_deaths$iso3c == "MYS" & daily_excess_deaths$date >= Sys.Date()-30*5) & daily_excess_deaths$date < Sys.Date()-2*7, ]
 
+daily_excess_deaths_raw <- daily_excess_deaths # QL: intermediate result
+
 # Check to ensure and remove any duplicated country-dates
 daily_excess_deaths <- daily_excess_deaths[!duplicated(paste0(daily_excess_deaths$iso3c, "_", daily_excess_deaths$date)), ]
 
